@@ -7,85 +7,96 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
     <header>
         <h1>Witamy na urbexforum.pl</h1>
+        <button id="login-btn">Zaloguj / Zarejestruj</button>
     </header>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="./index.js"></script>
+    
+    <nav>
+        <ul>
+            <li><a href="#">Strona Główna</a></li>
+            <li><a href="#">O nas</a></li>
+            <li><a href="#">Kontakt</a></li>
+            <li><a href="#">Kontakt</a></li>
+            <li><a href="#">Kontakt</a></li>
+        </ul>
+    </nav>
+    
     <main>
-        <section class="forum">
-            <article class="post">
-                <h2>Opuszczona fabryka</h2>
-                <div class="photo">
-
-                </div>
-                <p class="author">Autor: JanKowalski</p>
-                <p class="content">Czy ktoś był ostatnio w starej fabryce na obrzeżach miasta? Jakieś nowe informacje?</p>
-                <div class="comments">
-                    <h3>Komentarze:</h3>
-                    <div class="comment">
-                        <p><strong>Marek:</strong> Byłem tam tydzień temu, nadal można wejść, ale trzeba uważać!</p>
+        <section class="forum" id="forum">
+            <!-- Przykładowe kafelki postów -->
+            <div id="postModal" class="post-modal">
+                <div class="post-modal-content">
+                    <span class="close">&times;</span>
+                    <div class="modal-body">
+                        <div class="modal-image">
+                            <img src="urbex.jpeg" alt="Zdjęcie posta" id="modalImage">
+                        </div>
+                        <div class="modal-details">
+                            <h2 id="modalTitle">Tytuł posta</h2>
+                            <p id="modalDescription">Opis posta</p>
+                            <div class="comments-section">
+                                <h3>Komentarze:</h3>
+                                <ul id="commentsList">
+                                    <!-- Lista komentarzy -->
+                                </ul>
+                                <textarea id="newComment" placeholder="Dodaj komentarz..."></textarea>
+                                <button id="addComment">Dodaj komentarz</button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="comment">
-                        <p><strong>Aga:</strong> Widziałam ostatnio zdjęcia, wygląda niesamowicie!</p>
-                    </div>
-                    <form class="add-comment">
-                        <label for="username">Nazwa użytkownika:</label>
-                        <input type="text" id="username" name="username" required>
-                        
-                        <label for="comment">Treść komentarza:</label>
-                        <textarea id="comment" name="comment" required></textarea>
-                        
-                        <button type="submit">Dodaj komentarz</button>
-                    </form>
                 </div>
-            </article>
-            <article class="post">
-                <h2>Opuszczona fabryka</h2>
-                <div class="photo">
-                    
-                </div>
-                <p class="author">Autor: JanKowalski</p>
-                <p class="content">Czy ktoś był ostatnio w starej fabryce na obrzeżach miasta? Jakieś nowe informacje?</p>
-                <div class="comments">
-                    <h3>Komentarze:</h3>
-                    <div class="comment">
-                        <p><strong>Marek:</strong> Byłem tam tydzień temu, nadal można wejść, ale trzeba uważać!</p>
-                    </div>
-                    <div class="comment">
-                        <p><strong>Aga:</strong> Widziałam ostatnio zdjęcia, wygląda niesamowicie!</p>
-                    </div>
-                    <form class="add-comment">
-                        <label for="username">Nazwa użytkownika:</label>
-                        <input type="text" id="username" name="username" required>
-                        
-                        <label for="comment">Treść komentarza:</label>
-                        <textarea id="comment" name="comment" required></textarea>
-                        
-                        <button type="submit">Dodaj komentarz</button>
-                    </form>
-                </div>
-            </article>
-        </section>
-        <section class="contact-form">
-            <h2>Kontakt</h2>
-            <form>
-                <label for="name">Imię:</label>
-                <input type="text" id="name" name="name" required>
-                
-                <label for="email">E-mail:</label>
-                <input type="email" id="email" name="email" required>
-                
-                <label for="message">Wiadomość:</label>
-                <textarea id="message" name="message" required></textarea>
-                
-                <button type="submit">Wyślij</button>
-            </form>
+            </div>
+            
         </section>
     </main>
+    
+    <!-- Modal Logowania/Rejestracji -->
+<div id="loginModal" class="login-modal">
+    <div class="login-modal-content">
+        <span class="login-close">&times;</span>
+        
+        <!-- Formularz logowania -->
+        <div id="loginForm">
+            <h2>Zaloguj się</h2>
+            <form>
+                <label for="loginEmail">E-mail:</label>
+                <input type="email" id="loginEmail" required>
+                
+                <label for="loginPassword">Hasło:</label>
+                <input type="password" id="loginPassword" required>
+                
+                <button type="submit">Zaloguj</button>
+            </form>
+            <p>Nie masz konta? <a href="#" id="showRegister">Zarejestruj się</a></p>
+        </div>
+
+        <!-- Formularz rejestracji (ukryty domyślnie) -->
+        <div id="registerForm" style="display: none;">
+            <h2>Rejestracja</h2>
+            <form>
+                <label for="registerEmail">E-mail:</label>
+                <input type="email" id="registerEmail" required>
+                
+                <label for="registerPassword">Hasło:</label>
+                <input type="password" id="registerPassword" required>
+                
+                <label for="confirmPassword">Potwierdź hasło:</label>
+                <input type="password" id="confirmPassword" required>
+                
+                <button type="submit">Zarejestruj się</button>
+            </form>
+            <p>Masz już konto? <a href="#" id="showLogin">Zaloguj się</a></p>
+        </div>
+    </div>
+</div>
+
+    
     <footer>
         <p>&copy; 2025 Forum Urbex</p>
+        <p id="clock"></p>
     </footer>
+    
+    <script src="script.js"></script>
 </body>
 </html>
