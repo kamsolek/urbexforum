@@ -1,0 +1,67 @@
+# Visual Studio
+.vs/
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build
+bin/
+obj/
+out/
+publish/
+
+# Rider
+.idea/
+
+# NuGet
+*.nupkg
+#.nuget/packages/ # zwykle cache - nie trzeba commitować
+
+# ASP.NET / .NET Core
+appsettings.Secrets.json
+appsettings.*.Local.json
+secrets.json
+# Zwykle appsettings.json zawiera ustawienia środowiskowe — jeśli trzymasz w nim secret'y, ignoruj je,
+# ale często appsettings.json jest commitowany. Zdecyduj świadomie.
+
+# Entity Framework
+*.db
+*.sqlite
+*.mdf
+*.ldf
+
+# Logs
+*.log
+logs/
+
+# User-specific files
+*.psess
+*.vsp
+*.opensdf
+*.sdf
+
+# Test result
+TestResults/
+
+# npm / frontend
+node_modules/
+
+# Publish artifacts
+publish/
+*.publishsettings
+
+# JetBrains Rider
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# DotNet tool files
+.vs/
+*.dotCover
+
+# Optional: jeśli używasz user secrets (dotnet user-secrets)
+usersecrets/

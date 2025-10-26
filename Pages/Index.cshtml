@@ -1,0 +1,67 @@
+﻿@page
+@model UrbexForum.Pages.IndexModel
+@{
+    ViewData["Title"] = "Strona główna";
+}
+
+<br>
+<h3 class="text-center" style="font-size:1.7rem; margin-bottom:0.5rem;">Witaj na UrbexForum!</h3>
+<p class="text-center" style="font-size:1rem; color:#b0b0b0; margin-bottom:2rem;">kliknij na kafelek aby wykonać akcję</p>
+
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3 justify-content-center">
+    @foreach (var place in Model.Places)
+    {
+        <div class="col d-flex justify-content-center">
+            <div class="card h-100"
+                 data-id="@place.Id"
+                 data-name="@place.Name"
+                 onclick="showPlaceModal(this)">
+                <div class="card-header text-center">
+                    <strong>@place.Name</strong>
+                </div>
+                <img class="card-img-top"
+                     src="@(place.Image != null ? $"data:image/jpeg;base64,{Convert.ToBase64String(place.Image)}" : "~/images/no-image.png")"
+                     alt="Miniatura miejsca" />
+            </div>
+        </div>
+    }
+</div>
+
+<!-- Modal Bootstrap -->
+<div class="modal fade" id="placeModal" tabindex="-1" aria-labelledby="placeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-dark text-light">
+            <div class="modal-header">
+                <h5 class="modal-title" id="placeModalLabel">Akcje dla miejsca</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Zamknij"></button>
+            </div>
+            <div class="modal-body text-center">
+                <h4 id="modalPlaceName"></h4>
+                <div class="mt-3 d-flex justify-content-center gap-2">
+                    <a id="editBtn" class="btn btn-outline-warning">Edytuj</a>
+                    <a id="readBtn" class="btn btn-outline-info">Podgląd</a>
+                    <form id="deleteForm" method="post" style="display:inline;">
+                        <input type="hidden" name="id" id="deletePlaceId" />
+                        <button type="submit" class="btn btn-outline-danger">Usuń</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function showPlaceModal(card) {
+            var id = card.getAttribute('data-id');
+            var name = card.getAttribute('data-name');
+            document.getElementById('modalPlaceName').textContent = name;
+            document.getElementById('editBtn').href = '/Update?id=' + id;
+            document.getElementById('readBtn').href = '/Read?id=' + id;
+            document.getElementById('deletePlaceId').value = id;
+            var modal = new bootstrap.Modal(document.getElementById('placeModal'));
+            modal.show();
+        }
+    </script>
+}
+

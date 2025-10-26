@@ -1,0 +1,51 @@
+﻿@page
+@model UrbexForum.Pages.CreateModel
+@{
+    ViewData["Title"] = "Utwórz wpis";
+}
+
+<div class="container mt-4">
+    <h3 class="mb-4 text-center" style="font-size:1.7rem;">Utwórz nowy wpis</h3>
+    <form method="post" enctype="multipart/form-data">
+        <div class="row align-items-start">
+            <div class="col-md-6 text-center mb-3">
+                <img id="preview" src="#" alt="Podgląd zdjęcia" style="display:none; max-width:100%; max-height:450px; border-radius:12px; box-shadow:0 4px 24px rgba(0,0,0,0.15);" />
+                <div class="mt-3">
+                    <label asp-for="Uploadfile" class="form-label">Dodaj zdjęcie</label>
+                    <input type="file" asp-for="Uploadfile" class="form-control" onchange="showPreview(event);" />
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label asp-for="Place.Name" class="form-label" style="font-size:1.2rem;"></label>
+                    <input asp-for="Place.Name" class="form-control" style="font-size:1.3rem; font-weight:700;" />
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Place.Country" class="form-label">Lokalizacja</label>
+                    <input asp-for="Place.Country" class="form-control" style="font-size:1.1rem; color:#90caf9;" />
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Place.Description" class="form-label"></label>
+                    <textarea asp-for="Place.Description" class="form-control" rows="6"></textarea>
+                </div>
+                <div class="mt-4 text-end">
+                    <button type="submit" class="btn btn-outline-primary">Zapisz</button>
+                    <a asp-page="/Index" class="btn btn-outline-info ms-2">Powrót</a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <script>
+        function showPreview(event) {
+            const [file] = event.target.files;
+            if (file) {
+                const preview = document.getElementById('preview');
+                preview.src = URL.createObjectURL(file);
+                preview.style.display = 'block';
+            }
+        }
+    </script>
+}

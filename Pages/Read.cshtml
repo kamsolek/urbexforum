@@ -1,0 +1,29 @@
+﻿@page
+@model UrbexForum.Pages.ReadModel
+@{
+}
+
+<div class="container mt-4 read-container-padding">
+    <div class="row align-items-start">
+        <div class="col-md-6 text-center">
+            @if (Model.Place.Image != null)
+            {
+                <img src="data:image/jpeg;base64,@(Convert.ToBase64String(Model.Place.Image))"
+                     alt="Zdjęcie miejsca"
+                     style="max-width:100%; max-height:450px; border-radius:12px; box-shadow:0 4px 24px rgba(0,0,0,0.15);" />
+            }
+        </div>
+        <div class="col-md-6">
+            <h2 style="font-size:2.2rem; font-weight:700;">@Model.Place.Name</h2>
+            <div style="font-size:1.2rem; color:#90caf9; margin-bottom:1rem;">
+                <strong>Lokalizacja:</strong> @Model.Place.Country
+            </div>
+            <div style="font-size:1rem; color:#e0e0e0;">
+                @Html.Raw(Model.Place.Description?.Replace("\r\n", "<br />").Replace("\n", "<br />"))
+            </div>
+            <div class="mt-4 text-end">
+                <a asp-page="/Index" class="btn btn-outline-info">Powrót</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,220 @@
+@font-face {
+    font-family: 'OswaldVariable';
+    src: url('/fonts/Oswald-VariableFont_wght.ttf') format('truetype');
+    font-weight: 200 700; 
+    font-style: normal;
+    font-display: swap;
+}
+
+
+* {
+    font-family: 'OswaldVariable', 'Oswald', Arial, sans-serif !important;
+}
+
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: #171616;
+    background: linear-gradient(90deg, rgba(23, 22, 22, 1) 43%, rgba(99, 99, 99, 1) 86%, rgba(158, 158, 158, 1) 100%) !important;
+    font-family: 'OswaldVariable', 'Oswald', Arial, sans-serif !important;
+    color: #e0e0e0 !important;
+}
+
+
+body {
+    padding-top: 70px; 
+}
+
+
+.container, main, .page-content, .content {
+    flex-grow: 1;
+    background: transparent !important;
+    color: inherit !important;
+    font-family: inherit !important;
+}
+
+.content {
+    padding-bottom: 100px;
+}
+
+
+.navbar {
+    background: #cdd2d4;
+    background: linear-gradient(90deg, rgba(205, 210, 212, 1) 0%, rgba(217, 208, 208, 1) 44%, rgba(138, 138, 138, 1) 100%) !important;
+    color: #fff !important;
+    box-shadow: 0 2px 12px rgba(30,30,30,0.10);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1030;
+}
+
+    .navbar .navbar-brand, .navbar .nav-link {
+        color: #232526 !important;
+        transition: color 0.2s;
+    }
+
+        .navbar .nav-link:hover, .navbar .navbar-brand:hover {
+            color: #000 !important;
+        }
+
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+    position:relative;
+}
+
+.content {
+    flex: 1; 
+}
+
+
+.footer {
+    height: 60px;
+    line-height: 60px;
+    position: fixed;
+    bottom:0;
+    background: #cdd2d4;
+    background: linear-gradient(90deg, rgba(205, 210, 212, 1) 0%, rgba(217, 208, 208, 1) 44%, rgba(138, 138, 138, 1) 100%) !important;
+    color: #232526 !important;
+    text-align: center;
+    box-shadow: 0 -2px 12px rgba(30,30,30,0.10);
+}
+
+
+.card-header {
+    font-weight: bold;
+    color: #000 !important;
+    background-color: #e0e0e0;
+    padding: 10px;
+    border-bottom: 2px solid #ccc;
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+    box-sizing: border-box;
+}
+
+
+.button {
+    border: none;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.button-green {
+    background-color: green;
+    color: white;
+}
+
+.button-blue {
+    background-color: blue;
+    color: white;
+}
+
+.button-red {
+    background-color: red;
+    color: white;
+}
+
+.button-yellow {
+    background-color: yellow;
+    color: black;
+}
+
+
+a, .nav-link, .navbar-brand {
+    color: #90caf9 !important;
+    text-decoration: none;
+}
+
+    a:hover, .nav-link:hover, .navbar-brand:hover {
+        color: #fff !important;
+    }
+
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+
+.card {
+    cursor: pointer;
+    transition: box-shadow 0.2s, transform 0.2s;
+    width: 260px;
+    height: 340px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    margin: 0 auto;
+}
+
+    .card:hover {
+        box-shadow: 0 8px 32px rgba(30,30,30,0.18), 0 3px 8px rgba(30,30,30,0.12);
+        transform: translateY(-4px) scale(1.03);
+    }
+
+.card-img-top {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+}
+
+.row-cols-md-4 > .col {
+    flex: 0 0 25%;
+    max-width: 25%;
+}
+
+.g-3, .row.g-3 {
+    --bs-gutter-x: 0.75rem; 
+    --bs-gutter-y: 0.75rem;
+}
+
+.btn-outline-primary {
+    color: #218838 !important;
+    border-color: #34c759 !important;
+    background-color: #e6f9ec !important;
+    transition: background 0.2s, color 0.2s;
+}
+
+.btn-outline-primary:hover, .btn-outline-primary:focus {
+    background-color: #34c759 !important;
+    color: #fff !important;
+    border-color: #218838 !important;
+}
+
+.btn-outline-info {
+    color: #232526 !important;
+    border-color: #232526 !important;
+    background-color: #e0e0e0 !important;
+    transition: background 0.2s, color 0.2s;
+}
+
+.btn-outline-info:hover, .btn-outline-info:focus {
+    background-color: #232526 !important;
+    color: #fff !important;
+    border-color: #232526 !important;
+}
+
+/* Padding od góry dla g³ównego kontenera na stronie Read */
+.read-container-padding {
+    padding-top: 3.5rem;
+}
+
